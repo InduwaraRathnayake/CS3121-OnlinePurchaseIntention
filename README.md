@@ -27,7 +27,7 @@ This project explores the factors influencing consumers' intentions to make onli
 ├── README.md
 ├── requirements.txt
 ├── data/
-│   └── responses.csv
+│   └── responses.xlsx
 ├── preprocessing/
 │   └── data_cleaning.ipynb
 ├── eda/
