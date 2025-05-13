@@ -30,8 +30,8 @@ This project explores the factors influencing consumers' intentions to make onli
 │   └── responses.xlsx
 ├── preprocessing/
 │   └── data_cleaning.ipynb
-├── eda/
-│   └── exploratory_analysis.ipynb
+├── da_eda/
+│   └── descriptive_analysis_and_EDA.ipynb
 ├── hypothesis_testing/
 │   ├── given_hypotheses.ipynb
 │   └── custom_hypotheses.ipynb
