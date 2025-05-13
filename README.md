@@ -2,16 +2,7 @@
 
 ## Group Details
 
-- **Project Group Name**: [Project Group 13]
-
-- **Members**: (need to assign)
-  - Member 1: [Name] - Data Preprocessing Lead
-  - Member 2: [Name] - EDA and Insights Lead
-  - Member 3: [Name] - Given Hypotheses Testing
-  - Member 4: [Name] - Custom Hypotheses Testing
-  - Member 5: [Name] - Rule Mining & Report Coordination
-
----
+- **Project Group Name**: Project Group 13
 
 ## Project Overview
 
