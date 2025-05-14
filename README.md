@@ -6,7 +6,7 @@
 
 ## Project Overview
 
-This project explores the factors influencing consumers' intentions to make online purchases during crises in Sri Lanka. Using survey data (836 responses), we perform data preprocessing, exploratory analysis, hypothesis testing, and rule mining to derive actionable insights for Wolt's marketing strategies.
+In this project, we analyze consumer behavior during crises in Sri Lanka, focusing on their intentions to make online purchases. Conducted on behalf of Wolt, a leading retail operator, our study utilizes 836 survey responses to examine how various psychological, social, and system-related factors influence online shopping decisions during crisis periods. Key components include data preprocessing, statistical analysis, hypothesis testing, and prescriptive rule mining using the Apriori algorithm.
 
 ---
 
@@ -15,24 +15,25 @@ This project explores the factors influencing consumers' intentions to make onli
 ```
 /OnlinePurchaseIntention/
 │
-├── README.md
-├── requirements.txt
+├── README.md                         ← Project overview and instructions
+├── requirements.txt                  ← Python package dependencies
+│
 ├── data/
-│   └── responses.xlsx
+│   └── responses.xlsx                ← Raw survey data (836 responses)
+│
 ├── preprocessing/
-│   └── data_cleaning.ipynb
+│   └── data_cleaning.ipynb          ← Missing values, duplicates, transformations, reliability checks
+│
 ├── da_eda/
-│   └── descriptive_analysis_and_EDA.ipynb
+│   └── descriptive_analysis_and_EDA.ipynb  ← Descriptive statistics, visualizations, trend analysis
+│
 ├── hypothesis_testing/
-│   ├── given_hypotheses.ipynb
-│   └── custom_hypotheses.ipynb
+│   ├── given_hypotheses.ipynb       ← Hypothesis tests as per project brief
+│   └── custom_hypotheses.ipynb      ← Additional hypotheses based on conceptual model
+│
 ├── rule_mining/
-│   └── apriori_rules.ipynb
-└── output/
-    ├── final_cleaned_data.csv
-    ├── graphs/
-    ├── hypothesis_results/
-    └── rules_summary.txt
+│   └── apriori_rules.ipynb          ← Association rule mining using Apriori algorithm
+
 ```
 
 ---
@@ -65,28 +66,14 @@ pip install -r requirements.txt
 
 ---
 
-## Deliverables
-
-- **Final Report** (Max 10 Pages)
-- **Video Presentation** (Max 2 Minutes)
-
----
-
 ## Key Tasks
 
-- Data Cleaning and Transformation
-- Descriptive and Exploratory Data Analysis (EDA)
-- Hypothesis Testing (Given + Custom)
-- Rule Mining using Apriori Algorithm
-- Reporting Insights, Recommendations, and Conclusions
-
----
-
-## Notes
-
-- **Submission Deadline**: 14 May 2025, 11:59 PM
-- Ensure all members are present in the video.
-- Keep track of word/page limits for the report.
+| Task                      | Description                                                                                             |
+| ------------------------- | ------------------------------------------------------------------------------------------------------- |
+| **1. Data Preprocessing** | Cleaned dataset, handled missing values, calculated Cronbach's alpha for reliability                    |
+| **2. EDA**                | Explored variable distributions, trends, outliers, and relationships using statistical and visual tools |
+| **3. Hypothesis Testing** | Tested 10 given and 10 additional hypotheses using regression, correlation, mediation analysis          |
+| **4. Rule Mining**        | Applied Apriori algorithm to extract 5 actionable rules from consumer behavior patterns                 |
 
 ---
 
@@ -95,3 +82,5 @@ pip install -r requirements.txt
 - Pandas Documentation: https://pandas.pydata.org/docs/
 - Cronbach's Alpha: https://en.wikipedia.org/wiki/Cronbach%27s_alpha
 - Apriori Algorithm: https://en.wikipedia.org/wiki/Apriori_algorithm
+
+
