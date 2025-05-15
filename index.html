@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Data Science Project Report - Cyber Edition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary: #ffcc00;
+      --primary-glow: rgba(255, 204, 0, 0.4);
+      --dark: #0a0a0a;
+      --darker: #000000;
+      --light: #ffffff;
+      --accent: #1a1a1a;
+      --cyber-blue: #00f3ff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      background-color: var(--dark);
+      color: var(--light);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 30px;
+      position: relative;
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(255, 204, 0, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(255, 204, 0, 0.03) 0%, transparent 50%);
+    }
+
+    /* Circuit pattern background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(90deg, transparent 99%, rgba(255, 204, 0, 0.1) 100%),
+        linear-gradient(0deg, transparent 99%, rgba(255, 204, 0, 0.1) 100%);
+      background-size: 40px 40px;
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Data science terms background */
+    body::after {
+      content: "ML AI DataScience Analytics Regression Classification Clustering NeuralNetworks DeepLearning BigData Visualization Statistics";
+      position: fixed;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      opacity: 0.05;
+      color: var(--primary);
+      transform: rotate(-45deg);
+      white-space: nowrap;
+      pointer-events: none;
+      letter-spacing: 0.5px;
+      top: 0;
+      left: -100px;
+      z-index: -1;
+    }
+
+    .header-container {
+      position: relative;
+      margin-bottom: 2rem;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
+
+    header {
+      background-color: var(--accent);
+      color: var(--primary);
+      padding: 1.5rem 2rem;
+      border-radius: 5px;
+      text-align: center;
+      border-left: 4px solid var(--primary);
+      border-bottom: 2px solid var(--primary);
+      box-shadow: 0 0 25px rgba(255, 204, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%, 0 85%);
+    }
+
+    header::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(135deg, rgba(255, 204, 0, 0.1) 0%, transparent 100%),
+        radial-gradient(circle at 90% 10%, rgba(255, 204, 0, 0.1) 0%, transparent 60%);
+      z-index: -1;
+    }
+
+    /* Animated header glow effect */
+    header::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(135deg, transparent, transparent, transparent, var(--primary-glow), transparent, transparent);
+      transform: rotate(45deg);
+      animation: glow 10s infinite linear;
+      z-index: -1;
+      opacity: 0.3;
+    }
+
+    @keyframes glow {
+      0% { transform: rotate(45deg) translateX(-100%); }
+      100% { transform: rotate(45deg) translateX(100%); }
+    }
+
+    header h1 {
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* Futuristic title style */
+    header h1::before {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    header h2::before {
+      content: "⟨ ";
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    header h1::after {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    header h2::after {
+      content: " ⟩";
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .cybr-btn {
+      position: absolute;
+      right: -15px;
+      top: 50%;
+      transform: translateY(-50%) rotate(90deg);
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      padding: 0.3rem 0.5rem;
+      background: rgba(10, 10, 10, 0.8);
+      clip-path: polygon(0 0, 100% 0, 90% 100%, 0% 100%);
+      opacity: 0.7;
+    }
+
+    .main-wrapper {
+      max-width: 1100px;
+      margin: auto;
+      width: 100%;
+      position: relative;
+    }
+
+    /* Decorative cyberpunk elements */
+    .cyber-corner {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .cyber-corner-tl {
+      top: -10px;
+      left: -10px;
+      border-top: 3px solid var(--primary);
+      border-left: 3px solid var(--primary);
+    }
+
+    .cyber-corner-tr {
+      top: -10px;
+      right: -10px;
+      border-top: 3px solid var(--primary);
+      border-right: 3px solid var(--primary);
+    }
+
+    .cyber-corner-bl {
+      bottom: -10px;
+      left: -10px;
+      border-bottom: 3px solid var(--primary);
+      border-left: 3px solid var(--primary);
+    }
+
+    .cyber-corner-br {
+      bottom: -10px;
+      right: -10px;
+      border-bottom: 3px solid var(--primary);
+      border-right: 3px solid var(--primary);
+    }
+
+    .container {
+      background-color: var(--accent);
+      border: 1px solid var(--primary);
+      border-radius: 3px;
+      box-shadow: 0 0 30px rgba(255, 204, 0, 0.15), inset 0 0 10px rgba(0, 0, 0, 0.8);
+      overflow: hidden;
+      height: 75vh;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Edge highlight effects */
+    .container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+      z-index: 10;
+    }
+
+    .container::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+      z-index: 10;
+    }
+
+    /* Loading effect */
+    .loading-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background-color: var(--primary);
+      animation: loading 3s ease-in-out infinite;
+      z-index: 20;
+      box-shadow: 0 0 10px var(--primary-glow);
+    }
+
+    @keyframes loading {
+      0% { width: 0%; left: 0; }
+      50% { width: 30%; left: 35%; }
+      100% { width: 0%; left: 100%; }
+    }
+
+    .pdf-object {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Scan line effect */
+    .scan-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, 
+        transparent 50%, 
+        rgba(0, 0, 0, 0.05) 50%
+      );
+      background-size: 100% 4px;
+      pointer-events: none;
+      z-index: 5;
+      opacity: 0.4;
+    }
+
+    .fallback {
+      color: var(--light);
+      padding: 2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      position: relative;
+      background: 
+        radial-gradient(circle at center, rgba(255, 204, 0, 0.05) 0%, transparent 70%),
+        repeating-linear-gradient(45deg, rgba(10, 10, 10, 0.9), rgba(26, 26, 26, 0.9) 10px);
+    }
+
+    .fallback::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        linear-gradient(90deg, transparent 49%, rgba(255, 204, 0, 0.1) 50%, transparent 51%) 0 0 / 8px 8px,
+        linear-gradient(0deg, transparent 49%, rgba(255, 204, 0, 0.1) 50%, transparent 51%) 0 0 / 8px 8px;
+      pointer-events: none;
+    }
+
+    .fallback-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+      text-shadow: 0 0 8px var(--primary-glow);
+      position: relative;
+    }
+
+    /* Rotating element effect */
+    .fallback-icon::before,
+    .fallback-icon::after {
+      content: "▪";
+      position: absolute;
+      font-size: 1.5rem;
+      animation: rotate 4s infinite linear;
+      transform-origin: center;
+    }
+
+    .fallback-icon::before {
+      top: -15px;
+      right: -15px;
+    }
+
+    .fallback-icon::after {
+      bottom: -15px;
+      left: -15px;
+      animation-direction: reverse;
+    }
+
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .fallback h2 {
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+      color: var(--primary);
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Title underline effect */
+    .fallback h2::after {
+      content: "";
+      position: absolute;
+      width: 60%;
+      height: 2px;
+      bottom: -5px;
+      left: 20%;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+    }
+
+    .fallback p {
+      max-width: 600px;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    .btn {
+      background-color: var(--darker);
+      color: var(--primary);
+      padding: 0.75rem 2rem;
+      border: 1px solid var(--primary);
+      font-family: 'Rajdhani', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      margin-top: 1rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      box-shadow: 0 0 10px rgba(255, 204, 0, 0.2);
+    }
+
+    .btn:hover {
+      background-color: var(--primary);
+      color: var(--darker);
+      box-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
+      transform: translateY(-2px);
+    }
+
+    /* Button glitch effect */
+    .btn::before {
+      content: "DOWNLOAD";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cyber-blue);
+      opacity: 0;
+      transition: 0.2s;
+    }
+
+    .btn:hover::before {
+      opacity: 0.1;
+      transform: translate(3px, -3px);
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 2rem;
+      letter-spacing: 1px;
+      border-top: 1px solid rgba(255, 204, 0, 0.2);
+      padding-top: 1rem;
+    }
+
+    footer span {
+      color: var(--primary);
+    }
+
+    /* Terminal code blocks */
+    .code-decorations {
+      position: absolute;
+      font-family: 'JetBrains Mono', monospace;
+      color: rgba(255, 204, 0, 0.3);
+      font-size: 0.75rem;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .code-top-left {
+      top: 20px;
+      left: -180px;
+      text-align: left;
+    }
+
+    .code-bottom-right {
+      bottom: 20px;
+      right: -180px;
+      text-align: right;
+    }
+
+    @media (max-width: 1200px) {
+      .code-decorations {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 15px;
+      }
+      
+      .container {
+        height: 70vh;
+      }
+      
+      header h1 {
+        font-size: 1.5rem;
+      }
+      
+      .cybr-btn {
+        display: none;
+      }
+      
+      .cyber-corner {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header-container">
+    <header>
+      <h1>Exploration  of  Factors  Influencing  Consumers'  Online Purchase Intentions During Crises in Sri Lanka</h1>
+        <h2>Project Report</h2>
+      <div class="cybr-btn">CS3121</div>
+    </header>
+  </div>
+  
+  <div class="main-wrapper">
+    <div class="code-decorations code-top-left">
+      # Initializing analysis<br>
+      > import numpy as np<br>
+      > import pandas as pd<br>
+      > import sklearn as sk<br>
+      > df = pd.read_csv("data.csv")<br>
+    </div>
+    
+    <div class="code-decorations code-bottom-right">
+      model.fit(X_train, y_train)<br>
+      accuracy: 94.2%<br>
+      f1_score: 0.912<br>
+      roc_auc: 0.924<br>
+      > Generating report...
+    </div>
+    
+    <div class="cyber-corner cyber-corner-tl"></div>
+    <div class="cyber-corner cyber-corner-tr"></div>
+    <div class="cyber-corner cyber-corner-bl"></div>
+    <div class="cyber-corner cyber-corner-br"></div>
+    
+    <div class="container">
+      <div class="loading-bar"></div>
+      <div class="scan-line"></div>
+      <object data="Project Group 13.pdf" type="application/pdf" class="pdf-object">
+        <div class="fallback">
+          <div class="fallback-icon">⚠️</div>
+          <h2>PDF Module Offline</h2>
+          <p>Your browser doesn't support embedded PDFs or the file couldn't be accessed. Access the report directly using the secure link below.</p>
+          <a href="Project Group 13.pdf" class="btn" download>Download Report</a>
+        </div>
+      </object>
+    </div>
+  </div>
+  
+  <div class="footer-container">
+    <footer>COURSE: <span>CS3121</span> • &copy; 2025 Project Group 13 • CSE Department</footer>
+  </div>
+</body>
+</html>
